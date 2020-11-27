@@ -26,7 +26,7 @@ Images should be arranged according to the following directory structure:
 ```
 mpirun -np 4 classification.py --arch EfficientNetB7 --epochs 50
 ```
-Please replace the `-np 4` argument with the actual number of processors (i.e., GPUs) available on the system. The `--arch` argument should be chosen from the list of Keras applications. The `--epochs` parameters can be chosen accordingly.  After the training, the model is saved in `model.h5` file.
+Please replace the `-np 4` argument with the actual number of processors (i.e., GPUs) available on the system. For example, if each node has 4 GPUs, and two nodes are used, then `-np 8` should be used. The code will automatically bind each MPI process to a corresponding GPU.  The `--arch` argument should be chosen from the list of Keras applications. The `--epochs` parameters can be chosen accordingly.  After the training, the model is saved in `model.h5` file.
 
 `classification.py` will automatically balance the dataset (if it is imbalanced) by calculating the `class_weight`.
 
